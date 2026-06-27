@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hand Cricket Game</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#1e3c72,#2a5298,#4facfe);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#ffffff25;
+    border-radius:50%;
+    top:-120px;
+    left:-120px;
+    filter:blur(60px);
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#00e5ff25;
+    border-radius:50%;
+    bottom:-150px;
+    right:-150px;
+    filter:blur(80px);
+}
+
+#box{
+    width:90%;
+    max-width:1200px;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    z-index:1;
+}
+
+#batting,
+#bowling{
+    flex:1;
+}
+
+#box div{
+    background:rgba(255,255,255,.12);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+#box div:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+h2{
+    color:white;
+    margin-bottom:25px;
+    letter-spacing:2px;
+    font-size:30px;
+    text-shadow:2px 2px 8px black;
+}
+
+button{
+    width:70px;
+    height:70px;
+    margin:10px;
+    border:none;
+    border-radius:50%;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.35s;
+    color:white;
+}
+
+.bat{
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+}
+
+.bowl{
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+button:hover{
+    transform:translateY(-8px) scale(1.08);
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
+button:active{
+    transform:scale(.92);
+}
+
+p{
+    margin-top:18px;
+    padding:10px;
+    border-radius:10px;
+    background:rgba(255,255,255,.12);
+    color:white;
+    font-size:18px;
+    font-weight:500;
+    letter-spacing:.5px;
+}
+
+#myres,
+#comres{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+    color:#9c1558;
+    text-shadow:0 0 10px #e3ebe2;
+    background:rgba(255,255,255,.08);
+}
+
+#rep{
+    margin-top:35px;
+    z-index:1;
+}
+
+#pa{
+    width:220px;
+    height:60px;
+    border-radius:50px;
+    font-size:20px;
+    background:linear-gradient(135deg,#00c853,#64dd17);
+    color:white;
+    font-weight:bold;
+    letter-spacing:1px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+#pa:hover{
+    background:linear-gradient(135deg,#43a047,#2e7d32);
+    transform:translateY(-5px);
+}
+
+@media(max-width:900px){
+
+    #box{
+        flex-direction:column;
+        width:95%;
+    }
+
+    button{
+        width:60px;
+        height:60px;
+        font-size:20px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="box">
+
+    <div id="batting">
+        <h2 id="urinfo">🏏 BATTING</h2>
+
+        <button class="bat">1</button>
+        <button class="bat">2</button>
+        <button class="bat">4</button>
+        <button class="bat">6</button>
+
+        <p id="yourmove">YOUR MOVE :</p>
+        <p id="computermove">COMPUTER MOVE :</p>
+        <p id="us1">YOUR SCORE : 0</p>
+        <p id="myres">RESULT</p>
+
+    </div>
+
+    <div id="bowling">
+
+        <h2>🥎 BOWLING</h2>
+
+        <button class="bowl">1</button>
+        <button class="bowl">2</button>
+        <button class="bowl">4</button>
+        <button class="bowl">6</button>
+
+        <p id="cm">COMPUTER MOVE :</p>
+        <p id="ym">YOUR MOVE :</p>
+        <p id="cs1">COMPUTER SCORE : 0</p>
+        <p id="comres">RESULT</p>
+
+    </div>
+
+</div>
+
+<p id="rep">
+    <button id="pa"> Play Again</button>
+</p>
+
+<script src="./hc.js"></script>
+
+</body>
+</html>
